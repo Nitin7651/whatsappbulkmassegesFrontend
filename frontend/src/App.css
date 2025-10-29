@@ -10,244 +10,377 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #e8faf2, #e6f8fa); /* soft green/blue blend */
-    color: #333;
+   /* background: linear-gradient(135deg, #00ff4c, #00f2ff); /* Lighter Tailwind-like green/cyan */
+    background-image: url(https://i.pinimg.com/736x/ac/e5/18/ace5183167f79819d98e77856582af48.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #f9fafb; /* fallback */
+    color: #1f2937; /* Darker Gray */
     line-height: 1.6;
     min-height: 100vh;
-    padding-bottom: 3rem; /* Add padding at the bottom */
+    padding-bottom: 3rem;
 }
 
 /* --- Header --- */
 .app-header {
-    background: linear-gradient(90deg, #128C7E, #075E54); /* WhatsApp gradient */
+    background: linear-gradient(90deg, rgba(164, 255, 107, 0.8), rgba(7, 101, 0, 0.8)); /* Teal gradient with transparency */
     color: white;
-    padding: 16px 28px; /* Slightly reduced padding */
-    font-size: 1.5rem; /* Slightly reduced font size */
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    /* font-style: italic; */ /* Removed italic */
-    margin-bottom: 2rem; /* Add space below header */
+    margin-bottom: 2rem;
 }
 
 .app-header i {
-    margin-right: 12px;
-    font-size: 1.4rem; /* Icon size */
+    margin-right: 0.75rem;
+    font-size: 1.3rem;
 }
 
 /* --- Main Layout --- */
-.container { /* This is now the main content wrapper */
+.container {
     display: flex;
     flex-direction: column;
-    gap: 24px; /* Consistent gap */
-    padding: 0 20px; /* Horizontal padding */
-    max-width: 900px; /* Limit overall width */
-    margin: 0 auto; /* Center the container */
+    gap: 1.5rem;
+    padding: 0 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: transparent;
 }
 
-/* --- Cards / forms --- */
+/* --- Cards --- */
 .card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 6px 24px rgba(10, 10, 10, 0.06);
-    padding: 24px 28px; /* Adjusted padding */
-    border: 1px solid #e9f3ef;
+    background: linear-gradient(90deg, rgba(233, 255, 219, 0.566), rgba(63, 111, 43, 0.573));
+    border-radius: 0.75rem; /* Slightly larger radius */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    padding: 1.5rem 1.75rem; /* Adjusted padding */
+   /* border: 1px solid #15ff00; /* Lighter border */
     display: flex;
     flex-direction: column;
 }
 
 .form-card {
     width: 100%;
-    /* max-width: 780px; Remove max-width, let container handle it */
     margin: 0 auto;
 }
 
 h2 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 20px; /* Increased margin */
-    color: #075E54; /* Dark WhatsApp Green */
+    font-size: 1.25rem; /* Slightly smaller */
+    font-weight: 600; /* Semibold */
+    margin-bottom: 1.25rem;
+    color: #0f766e; /* Dark Teal */
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.5rem;
 }
 
-h2 i { color: #25D366; } /* WhatsApp Green icon */
+h2 i { color: #14b8a6; } /* Lighter Teal icon */
 
 /* --- Form Elements --- */
 .form-group {
-    margin-bottom: 18px; /* Increased margin */
+    margin-bottom: 1.25rem;
 }
 
 .form-group label {
     display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #444;
+    font-weight: 500; /* Medium */
+    margin-bottom: 0.5rem;
+    color: #374151; /* Medium Gray */
+    font-size: 0.9rem;
+}
+
+/* Styling for Inputs and Textareas */ 
+input[type="text"],
+input[type="tel"],
+input[type="search"],
+textarea {
+    width: 100%;
+    padding: 0.65rem 0.9rem; /* Adjusted padding */
+    border: 1px solid #d1d5db; /* Gray border */
+    border-radius: 0.5rem; /* Tailwind-like radius */
+    font-family: inherit;
+    font-size: 0.95rem;
+    background-color: #e6ffd8; /* Very light gray */
+    color: #1f2937;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input::placeholder,
+textarea::placeholder {
+    color: #9ca3af; /* Lighter placeholder */
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0d9488; /* Teal focus border */
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2); /* Teal focus ring */
 }
 
 textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #dbeee3;
-    border-radius: 8px; /* Slightly less rounded */
-    font-family: inherit;
-    font-size: 1rem;
-    min-height: 120px;
+    min-height: 100px; /* Reduced min-height */
     resize: vertical;
-    background-color: #f9fdfa; /* Slightly different background */
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-textarea:focus {
-    outline: none;
-    border-color: #1DA851; /* Darker green on focus */
-    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15); /* Adjusted focus shadow */
+/* --- Contact List Specific --- */
+.contact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow controls to wrap on small screens */
+    gap: 0.75rem; /* Gap between label and controls */
+    margin-bottom: 0.75rem; /* Space below header */
+}
+/* Ensure label within header doesn't have bottom margin */
+.contact-header label {
+    margin-bottom: 0;
+}
+.contact-controls {
+    display: flex;
+    gap: 0.5rem; /* Gap between buttons/input */
+    align-items: center;
+}
+.contact-filter {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+    max-width: 180px; /* Limit filter width */
+}
+.btn-small { /* Smaller buttons for controls */
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    gap: 0.3rem;
+    font-weight: 500;
+}
+.btn-small i {
+    font-size: 0.8em;
+}
+
+.contact-list {
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #dbffc7;
+  border-radius: 0.5rem;
+  padding: 0.5rem; /* Padding inside the list */
+  background-color: #dfffc7;
+  margin-bottom: 1rem; /* Added margin below list */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #d3ffc3;
+}
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.contact-item input[type="checkbox"] {
+  margin-right: 0.75rem;
+  cursor: pointer;
+  transform: scale(1.0); /* Standard size */
+  accent-color: #0d9488; /* Teal checkbox */
+}
+
+.contact-item label {
+  margin-bottom: 0;
+  font-weight: 400; /* Normal weight */
+  cursor: pointer;
+  flex-grow: 1;
+  color: #1f2937;
+  font-size: 0.9rem;
+  display: flex; /* Align name and number */
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-number { /* Style the number part */
+    font-size: 0.8rem;
+    color: #6b7280; /* Medium gray */
+    margin-left: 0.5rem;
+}
+
+.no-contacts-msg {
+    padding: 1rem;
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* --- Manual Add Section --- */
+.manual-add-box {
+    border: 1px dashed #a5f3fc; /* Cyan dashed border */
+    background-color: #ccffcd; /* Very light cyan */
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 0.75rem; /* Space below contact list controls */
+    margin-bottom: 1.25rem; /* Space below manual add box */
+}
+.manual-add-box .form-group {
+    margin-bottom: 0.75rem; /* Less margin inside box */
+}
+.manual-add-box .form-group:last-of-type {
+    margin-bottom: 1rem; /* More margin before button */
+}
+.manual-input { /* Style inputs within manual add */
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+}
+.add-btn { /* Style the add button */
+    width: auto; /* Don't make add button full width */
+    margin-left: auto; /* Push to the right */
+    display: block; /* Needed for margin-left auto */
+}
+.manual-error { /* Style error message in manual add */
+    color: #dc2626; /* Red */
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    text-align: right;
 }
 
 /* --- Buttons --- */
 .button-group {
     display: flex;
-    gap: 14px;
-    margin-top: 20px; /* Increased margin */
+    gap: 0.75rem;
+    margin-top: 1.5rem;
     align-items: center;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center; /* Center content */
-    gap: 8px; /* Reduced gap */
-    padding: 11px 18px; /* Adjusted padding */
-    border-radius: 8px; /* Matched textarea */
-    font-size: 1rem;
-    font-weight: 600; /* Slightly less bold */
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.2rem; /* Adjusted padding */
+    border-radius: 0.5rem;
+    font-size: 0.95rem; /* Slightly smaller */
+    font-weight: 500; /* Medium */
     cursor: pointer;
-    border: none;
+    border: 1px solid transparent; /* Base border */
     transition: all 0.2s ease;
-    text-decoration: none; /* Remove underline if used as link */
-    white-space: nowrap; /* Prevent wrapping */
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 .btn i {
-    font-size: 0.9em; /* Adjust icon size relative to text */
+    font-size: 1em; /* Icon size matches text */
 }
 
 .btn:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
-    transform: none !important; /* Prevent hover effect when disabled */
+    transform: none !important;
     box-shadow: none !important;
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #128C7E, #25D366); /* WhatsApp gradient */
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+    background-color: #0d9488; /* Teal */
+    color: #e0ffda;
+    border-color: #0d9488;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
 
 .btn-primary:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+    background-color: #0f766e; /* Darker Teal */
+    border-color: #0f766e;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .btn-danger-outline {
     background: transparent;
-    color: #c82333; /* Darker red text */
-    border: 2px solid #e57373; /* Lighter red border */
-    padding: 9px 16px; /* Adjust padding for border */
+    color: #dc2626; /* Red */
+    border: 1px solid #ef4444; /* Lighter Red border */
+    padding: calc(0.7rem - 1px) calc(1.2rem - 1px); /* Adjust padding for border */
 }
 
 .btn-danger-outline:hover:not(:disabled) {
-    background: #fff0f1; /* Very light red background */
-    border-color: #dc3545; /* Standard red border */
-    color: #dc3545;
-    transform: translateY(-1px);
+    background: #fef2f2; /* Very light red */
+    border-color: #dc2626; /* Darker Red border */
+    color: #b91c1c; /* Darkest Red text */
 }
 
 .btn-secondary {
-    background-color: #e9ecef; /* Light grey */
-    color: #495057; /* Dark grey text */
-    border: 1px solid #ced4da; /* Medium grey border */
-    padding: 10px 14px;
+    background-color: #e5e7eb; /* Light grey */
+    color: #374151; /* Medium grey text */
+    border: 1px solid #d1d5db; /* Medium grey border */
+    padding: 0.6rem 1rem; /* Slightly smaller secondary */
+    font-size: 0.9rem;
 }
 .btn-secondary:hover:not(:disabled) {
-    background-color: #dee2e6; /* Slightly darker grey */
+    background-color: #d1d5db; /* Darker grey */
 }
 
 /* view-history button row */
 .history-toggle-row {
     display: flex;
     justify-content: center;
-    margin-top: 10px; /* Reduced margin */
-    margin-bottom: 10px;
+    margin-top: 0.5rem; /* Reduced margin */
+    margin-bottom: 0.5rem;
 }
 
-.view-history-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 18px;
-    border-radius: 20px; /* Pill shape */
-    font-weight: 600;
+.view-history-btn { /* Uses btn and btn-secondary now */
+    border-radius: 9999px; /* Pill shape */
+    font-weight: 500;
 }
 
 /* --- Status message --- */
 .status-message {
-    margin-top: 18px; /* Increased space */
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-weight: 500; /* Normal weight */
-    border-left: 5px solid transparent; /* Prepare for border color */
-    font-size: 0.95rem;
+    margin-top: 1rem; /* Consistent margin */
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem; /* Tailwind md radius */
+    font-weight: 500;
+    border-left: 4px solid transparent;
+    font-size: 0.9rem;
 }
 
 .status-message.status-success {
-    color: #155724; /* Dark green text */
-    background-color: #d4edda; /* Light green background */
-    border-left-color: #28a745; /* Green border */
+    color: #065f46; /* Darker Green */
+    background-color: #d1fae5; /* Lighter Green */
+    border-left-color: #10b981; /* Medium Green */
 }
 
 .status-message.status-error {
-    color: #721c24; /* Dark red text */
-    background-color: #f8d7da; /* Light red background */
-    border-left-color: #dc3545; /* Red border */
+    color: #991b1b; /* Darker Red */
+    background-color: #fee2e2; /* Lighter Red */
+    border-left-color: #ef4444; /* Medium Red */
 }
 
 
 /* --- History Card (collapsible) --- */
 .history-card {
     width: 100%;
-    /* max-width: 900px; Remove max-width, let container handle it */
     margin: 0 auto;
     overflow: hidden;
-    transition: max-height 350ms ease-out, opacity 300ms ease-out, padding 350ms ease-out, margin-top 350ms ease-out;
+    transition: max-height 350ms ease-out, opacity 300ms ease-out, padding 350ms ease-out, margin-top 350ms ease-out, visibility 0s linear 350ms;
     box-sizing: border-box;
-    /* Styles for expanded state are applied when 'expanded' class is present */
 }
 
-/* collapsed state: hidden */
 .history-card.collapsed {
     max-height: 0;
     padding-top: 0;
     padding-bottom: 0;
-    margin-top: 0 !important; /* Ensure no margin when collapsed */
+    margin-top: 0 !important;
     opacity: 0;
     border: none;
     box-shadow: none;
-    visibility: hidden; /* Hide completely */
+    visibility: hidden;
+    /* Adjust transition for hiding */
+    transition: max-height 350ms ease-out, opacity 300ms ease-out, padding 350ms ease-out, margin-top 350ms ease-out, visibility 0s linear 0s;
 }
 
-/* expanded state: visible */
 .history-card.expanded {
-    max-height: 700px; /* Adjust as needed */
-    padding: 24px 28px;
-    margin-top: 0; /* Use container gap for spacing */
+    max-height: 70vh; /* Use viewport height */
+    padding: 1.5rem 1.75rem;
+    margin-top: 0;
     opacity: 1;
     visibility: visible;
-    /* Border and shadow inherited from .card */
+    /* Adjust transition for showing */
+     transition: max-height 350ms ease-out, opacity 300ms ease-out 50ms, padding 350ms ease-out, margin-top 350ms ease-out, visibility 0s linear 0s;
 }
 
 /* header inside history */
@@ -255,121 +388,126 @@ textarea:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 16px; /* Increased margin */
+    gap: 0.75rem;
+    margin-bottom: 1rem;
 }
 .history-header h2 {
-    margin-bottom: 0; /* Remove default margin from h2 */
+    margin-bottom: 0;
 }
 
 /* scrollable table wrapper */
 .table-wrapper {
-    max-height: 400px; /* Increased height */
+    max-height: 50vh; /* Adjust max height based on card height */
     overflow-y: auto;
-    border: 1px solid #eee; /* Add border */
-    border-radius: 8px;
-    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background: #dfffcc;
 }
 
 /* table styles */
 .history-table {
     width: 100%;
     border-collapse: collapse;
-    /* min-width: 700px; Remove min-width, allow wrap */
 }
 
 .history-table th, .history-table td {
-    padding: 12px 15px; /* Consistent padding */
-    border-bottom: 1px solid #f1f5f3;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e2ffcb;
     text-align: left;
     vertical-align: middle;
-    font-size: 0.9rem; /* Slightly smaller font */
+    font-size: 0.875rem;
 }
 
 .history-table th {
-    font-weight: 600; /* Standard bold */
-    color: #495057; /* Darker grey */
-    background: #f8f9fa; /* Very light grey */
+    font-weight: 500; /* Medium */
+    color: #4b5563; /* Medium Gray */
+    background: #deffda;
     position: sticky;
-    top: 0; /* Stick header to top when scrolling */
-    z-index: 1; /* Ensure header stays above content */
+    top: 0;
+    z-index: 1;
     white-space: nowrap;
 }
 .history-table td {
-    color: #495057;
+    color: #374151;
 }
 
 /* Alternate row striping */
-.history-table tbody tr:nth-child(odd) td {
-    background-color: #fbfcfd;
+.history-table tbody tr:nth-child(even) td { /* Changed to even for slightly different look */
+    background-color: #f9fafb;
 }
 
 .no-history {
-    padding: 30px; /* Increased padding */
+    padding: 1.5rem;
     text-align: center;
-    color: #6c757d; /* Medium grey */
+    color: #6b7280;
     font-style: italic;
+    font-size: 0.9rem;
 }
 
 /* Status badges inside table */
 .status-badge {
     display: inline-block;
-    padding: 5px 10px; /* Adjusted padding */
-    border-radius: 16px; /* Pill shape */
-    font-weight: 600; /* Slightly less bold */
-    font-size: 0.8rem; /* Smaller font */
-    text-transform: capitalize; /* Ensure consistency */
-    border: 1px solid transparent; /* Prepare for border */
+    padding: 0.25rem 0.6rem; /* Adjusted padding */
+    border-radius: 9999px; /* Pill shape */
+    font-weight: 500;
+    font-size: 0.75rem; /* Smaller */
+    text-transform: capitalize;
+    border: 1px solid transparent;
     white-space: nowrap;
 }
 
-.status-badge.status-success { /* Matched success color */
-    background: #d4edda;
-    color: #155724;
-    border-color: #c3e6cb;
+.status-badge.status-success {
+    background-color: #dcfce7; /* Light Green bg */
+    color: #166534; /* Dark Green text */
+    border-color: #86efac; /* Lighter Green border */
 }
-.status-badge.status-deleted { /* Specific style for deleted */
-    background: #e2e3e5;
-    color: #495057;
-    border-color: #d6d8db;
+.status-badge.status-deleted {
+    background-color: #e5e7eb; /* Light Gray bg */
+    color: #4b5563; /* Medium Gray text */
+    border-color: #d1d5db; /* Gray border */
 }
 .status-badge.status-fail { /* Consolidated fail styles */
-    background: #f8d7da;
-    color: #721c24;
-    border-color: #f5c6cb;
+    background-color: #fee2e2; /* Light Red bg */
+    color: #991b1b; /* Dark Red text */
+    border-color: #fca5a5; /* Lighter Red border */
 }
 /* Fallback style if class doesn't match */
 .status-badge {
-     background: #f8f9fa;
-     color: #495057;
-     border-color: #dee2e6;
+     background-color: #f3f4f6; /* Default light gray */
+     color: #4b5563;
+     border-color: #e5e7eb;
 }
 
 
 /* responsive tweaks */
 @media (max-width: 900px) {
-    .container { max-width: 100%; } /* Allow full width */
-    .history-card.expanded { max-height: 550px; } /* Adjust height */
-    .history-card { padding: 18px 20px; } /* Adjust padding */
-    .form-card { padding: 18px 20px; } /* Adjust padding */
+    .container { max-width: 100%; }
+    /* .history-card.expanded { max-height: 60vh; }  Adjust if needed */
 }
 
 @media (max-width: 600px) {
-    body { margin: 1rem 0; padding-bottom: 1rem; }
-    .app-header { padding: 12px 15px; font-size: 1.3rem; margin-bottom: 1rem;}
-    .container { padding: 0 15px; gap: 15px; } /* Adjust padding/gap */
-    .card { padding: 15px; } /* Reduce card padding */
-    h2 { font-size: 1.2rem; margin-bottom: 15px; }
-    textarea { min-height: 100px; }
-    .button-group { flex-direction: column; width: 100%; gap: 10px; } /* Stack buttons */
-    .btn { width: 100%; } /* Make buttons full width */
-    .history-toggle-row { margin-top: 5px; margin-bottom: 5px; }
+    body { margin: 0; padding-bottom: 1rem; }
+    .app-header { padding: 0.8rem 1rem; font-size: 1.2rem; margin-bottom: 1rem;}
+    .container { padding: 0 0.75rem; gap: 1rem; }
+    .card { padding: 1rem; border-radius: 0.5rem;}
+    h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+    textarea { min-height: 80px; }
+    .contact-list { max-height: 180px; }
+    .contact-header { flex-direction: column; align-items: stretch; }
+    .contact-controls { justify-content: space-between;}
+    .contact-filter { max-width: none; flex-grow: 1;}
+    .manual-add-box { padding: 0.75rem; } /* Reduce padding */
+    .button-group { flex-direction: column; width: 100%; gap: 0.5rem; }
+    .btn { width: 100%; font-size: 0.95rem; padding: 0.75rem 1rem;}
+    .history-toggle-row { margin-top: 0.5rem; margin-bottom: 0.5rem; }
     .view-history-btn { width: 100%; justify-content: center; }
-    .history-card { padding: 15px; }
-    .history-header { flex-direction: column; align-items: flex-start; gap: 8px;}
-    .history-header h2 { margin-bottom: 8px;}
-    .table-wrapper { max-height: 300px; }
-    .history-table th, .history-table td { padding: 10px 8px; font-size: 0.85rem;}
-    /* Consider hiding less important columns on small screens if needed */
+    .history-card.expanded { max-height: 50vh; }
+    .history-card { padding: 1rem; }
+    .history-header { flex-direction: row; align-items: center; }
+    .history-header h2 { margin-bottom: 0; font-size: 1.1rem;}
+    .table-wrapper { max-height: 40vh; } /* Adjust height */
+    .history-table th, .history-table td { padding: 0.6rem 0.5rem; font-size: 0.8rem;}
+    /* Example: Hide Message column on small screens */
+    .history-table th:nth-child(4), .history-table td:nth-child(4) { display: none; }
 }
 

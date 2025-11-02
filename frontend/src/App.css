@@ -477,6 +477,268 @@ textarea {
      color: #4b5563;
      border-color: #e5e7eb;
 }
+/* --- Add these styles to your App.css --- */
+
+/* ... (Keep all your existing styles for .app-header, .card, h2, .form-group, etc.) ... */
+
+/* --- Contact List Controls --- */
+.contact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow controls to wrap */
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+.contact-header label {
+    margin-bottom: 0; /* Remove default margin */
+}
+.contact-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.contact-filter {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+    max-width: 180px;
+    border: 1px solid #d1d5db; /* Ensure inputs have consistent style */
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+}
+
+/* Re-usable small button */
+.btn-small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    gap: 0.3rem;
+    font-weight: 500;
+}
+.btn-small i {
+    font-size: 0.8em;
+}
+
+
+/* --- Manual Add Section --- */
+.manual-add-box {
+    border: 1px dashed #a5f3fc; /* Cyan dashed border */
+    background-color: #f0fdfa; /* Very light cyan */
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+.manual-add-box .form-group {
+    margin-bottom: 0.75rem;
+}
+.manual-add-box .form-group:last-of-type {
+    margin-bottom: 1rem;
+}
+.manual-input { /* Style inputs within manual add */
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+}
+.add-btn { /* Style the add button */
+    width: auto;
+    margin-left: auto;
+    display: block;
+}
+.manual-error { /* Style error message in manual add */
+    color: #dc2626; /* Red */
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    text-align: right;
+}
+
+/* --- File Upload Section --- */
+.upload-box {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+.upload-box .btn {
+    flex-shrink: 0; /* Prevent upload button from shrinking */
+}
+/* Hide default file input */
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+/* Style the label to look like a button */
+.file-label {
+    flex-grow: 1; /* Allow label to take available space */
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Add '...' if filename is too long */
+    display: inline-flex; /* Align icon */
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    cursor: pointer; /* Show pointer on label */
+}
+/* Feedback message for upload */
+.upload-status {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    border-left: 4px solid transparent;
+}
+.upload-status.status-success { /* Use status-success styling */
+    color: #065f46;
+    background-color: #d1fae5;
+    border-left-color: #10b981;
+}
+.upload-status.status-error { /* Use status-error styling */
+    color: #991b1b;
+    background-color: #fee2e2;
+    border-left-color: #ef4444;
+}
+
+
+/* ... (Keep all your other existing styles: .contact-list, .btn, .history-card, .table-wrapper, .status-badge, etc.) ... */
+/* ... (Ensure the @media queries are at the end) ... */
+/* --- Add these styles to your App.css --- */
+
+/* ... (Keep all existing styles) ... */
+
+/* New base class for icon-only buttons */
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #6b7280; /* Medium gray */
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 50%;
+    width: 28px;  /* Set fixed size */
+    height: 28px; /* Set fixed size */
+    flex-shrink: 0; /* Don't shrink */
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-icon i {
+    font-size: 1rem; /* Adjust icon size */
+    line-height: 1; /* Center icon */
+}
+.btn-icon:hover:not(:disabled) {
+    background-color: #fef2f2; /* Light red bg */
+    color: #dc2626; /* Red */
+}
+.btn-icon:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Adjust contact item for new button */
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  gap: 0.5rem; /* Add gap between elements */
+}
+.contact-item:last-child {
+    border-bottom: none;
+}
+.contact-item input[type="checkbox"] {
+  margin-right: 0.25rem; /* Reduce margin */
+  flex-shrink: 0; /* Prevent checkbox shrinking */
+}
+.contact-item label {
+  flex-grow: 1; /* Let the label grow */
+  /* Remove justify-content: space-between */
+  justify-content: flex-start; /* Just align start */
+  display: block; /* Change to block for better wrapping/overflow */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Prevent name from wrapping */
+  margin-bottom: 0; /* Override default label margin */
+  cursor: pointer;
+}
+.contact-item label .contact-number {
+    color: #6b7280;
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.contact-remove-btn {
+    margin-left: auto; /* Push remove button to the far right */    
+}
+/* --- Add these styles to your App.css --- */
+
+/* New base class for icon-only buttons */
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #6b7280; /* Medium gray */
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 50%;
+    width: 28px;  /* Set fixed size */
+    height: 28px; /* Set fixed size */
+    flex-shrink: 0; /* Don't shrink */
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-icon i {
+    font-size: 1rem; /* Adjust icon size */
+    line-height: 1; /* Center icon */
+}
+.btn-icon:hover:not(:disabled) {
+    background-color: #fef2f2; /* Light red bg */
+    color: #dc2626; /* Red */
+}
+.btn-icon:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Adjust contact item for new button */
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  gap: 0.5rem; /* Add gap between elements */
+}
+.contact-item:last-child {
+    border-bottom: none;
+}
+.contact-item input[type="checkbox"] {
+  margin-right: 0.25rem; /* Reduce margin */
+  flex-shrink: 0; /* Prevent checkbox shrinking */
+}
+.contact-item label {
+  flex-grow: 1; /* Let the label grow */
+  /* Remove justify-content: space-between */
+  justify-content: flex-start; /* Just align start */
+  display: block; /* Change to block for better wrapping/overflow */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Prevent name from wrapping */
+  margin-bottom: 0; /* Override default label margin */
+  cursor: pointer;
+}
+.contact-item label .contact-number {
+    color: #6b7280;
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.contact-remove-btn {
+    margin-left: auto; /* Push remove button to the far right */
+}
 
 
 /* responsive tweaks */
